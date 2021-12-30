@@ -1,3 +1,5 @@
+// Copyright (c) 2021 Tapani Saarinen
+
 import React, { useEffect } from 'react';
 
 import {

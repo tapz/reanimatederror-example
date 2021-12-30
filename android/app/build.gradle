@@ -50,38 +50,12 @@ def jscFlavor = 'org.webkit:android-jsc-intl:+'
  */
 def enableHermes = project.ext.react.get("enableHermes", false);
 
-buildscript {
-  repositories {
-    maven { url "https://maven.fabric.io/public" }
-  }
-}
-
 repositories {
-  maven { url "https://maven.fabric.io/public" }
   mavenCentral {
     content {
       excludeGroup "com.facebook.react"
     }
   }
-}
-
-def getIp() {
-  InetAddress result = null;
-  Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
-  while (interfaces.hasMoreElements()) {
-    Enumeration<InetAddress> addresses = interfaces.nextElement().getInetAddresses();
-    while (addresses.hasMoreElements()) {
-      InetAddress address = addresses.nextElement();
-      if (!address.isLoopbackAddress()) {
-        if (address.isSiteLocalAddress()) {
-          return address.getHostAddress();
-        } else if (result == null) {
-          result = address;
-        }
-      }
-    }
-  }
-  return (result != null ? result : InetAddress.getLocalHost()).getHostAddress();
 }
 
 gradle.projectsEvaluated {
@@ -150,12 +124,9 @@ android {
   buildTypes {
     debug {
       versionNameSuffix "-DEBUG"
-      buildConfigField "String", "SERVER_IP", "\"${getIp()}\""
     }
     release {
       minifyEnabled enableProguardInReleaseBuilds
-      proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-      buildConfigField "String", "SERVER_IP", "\"\""  
     }
   }
 

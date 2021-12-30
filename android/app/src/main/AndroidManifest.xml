@@ -27,7 +27,6 @@
         android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout|uiMode"
         android:resizeableActivity="true"
         android:stateNotNeeded="true"
-        android:supportsPictureInPicture="true"
         android:windowSoftInputMode="stateUnspecified|adjustResize"
       >
         <intent-filter>
