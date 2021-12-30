@@ -1,0 +1,76 @@
+# OSX
+#
+.DS_Store
+ios/bundle/
+
+# Xcode
+#
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace
+ios/Pods/
+.vscode/.react
+*.hprof
+
+# Android/IJ
+#
+*.iml
+.idea
+.gradle
+local.properties
+android/app/my-release-key.keystore
+gen/
+
+build/
+*.iml
+yarn-error.log
+*.keystore
+
+# node.js
+#
+node_modules/
+npm-debug.log
+
+# VSCode
+jsconfig.json
+.vscode/
+
+# BUCK
+buck-out/
+\.buckd/
+android/app/libs
+android/keystores/debug.keystore
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Gitignore.md
+
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+android/app/.settings
+android/app/bin
+android/.project
+android/app/.project
+index.android.bundle.meta
+index.android.bundle
+/android/app/test-android.jks
+*.code-workspace
+*.apk

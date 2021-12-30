@@ -1,0 +1,44 @@
+{
+  "name": "reanimatederror-example",
+  "author": "Tapani Saarinen",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "eslint": "./node_modules/eslint/bin/eslint.js src/",
+    "metro": "react-native start --reset-cache",
+    "start": "cd android && ./gradlew clean && cd - && react-native run-android",
+    "pretest": "$(npm bin)/eslint .*/src/.*",
+    "bundle": "react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/",
+    "release-android": "cd android && ./gradlew clean && yarn bundle && ./gradlew assembleRelease --scan && cd -",
+    "install-android": "cd android && ./gradlew installRelease && cd -",
+    "postinstall": "npx jetify node && cd ios && pod update && cd - && cd ios;xcodebuild -resolvePackageDependencies",
+    "clear": "rm -rf ~/.gradle && watchman watch-del-all && rm -rf android/.gradle && rm -rf android/build && rm -rf android/app/build && rm -rf $TMPDIR/metro-* && rm -rf $TMPDIR/haste-* && rm -rf node_modules && rm -f yarn.lock && rm -rf ios/Pods && rm -f ios/Podfile.lock && rm -rf ~/Library/Developer/Xcode/DerivedData && rm -rf ~/DerivedData && yarn && cd ios && xcodebuild -resolvePackageDependencies && cd .. && react-native start --reset-cache"
+  },
+  "dependencies": {
+    "@react-navigation/native": "6.0.6",
+    "@react-navigation/stack": "6.0.11",
+    "react": "17.0.2",
+    "react-native": "0.66.4",
+    "react-native-gesture-handler": "2.1.0",
+    "react-native-reanimated": "2.3.1",
+    "react-native-safe-area-context": "3.3.2",
+    "react-native-screens": "3.10.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.16.0",
+    "@babel/core": "7.16.5",
+    "@babel/eslint-parser": "^7.16.5",
+    "@babel/runtime": "7.16.5",
+    "@react-native-community/eslint-config": "^3.0.1",
+    "babel-plugin-transform-es2015-constants": "6.1.4",
+    "babel-plugin-transform-remove-console": "6.9.4",
+    "eslint": "^8.5.0",
+    "eslint-plugin-babel": "5.3.1",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-native": "^4.0.0",
+    "jetifier": "2.0.0",
+    "metro-react-native-babel-preset": "0.66.2",
+    "react-dom": "17.0.2"
+  }
+}
