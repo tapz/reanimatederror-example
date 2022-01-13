@@ -8,7 +8,8 @@ class AppDelegate:
   var window: UIWindow?
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    let rootView = RCTRootView(bundleURL: self.bundleUrl, moduleName: "Example", initialProperties: [:], launchOptions: launchOptions)
+    guard let bridge = RCTBridge(delegate: self, launchOptions: launchOptions) else { return false }
+    let rootView = RCTRootView(bridge: bridge, moduleName: "Example", initialProperties: [:])
     
     let window = UIWindow(frame: UIScreen.main.bounds)
     self.window = window
